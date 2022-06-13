@@ -9,6 +9,7 @@ param containerRegistryUsername string
 param isPrivateRegistry bool
 param enableIngress bool 
 param registryPassword string
+param activeRevisionMode string = 'single'
 param minReplicas int = 0
 param secrets array = []
 param env array = []
@@ -24,6 +25,7 @@ resource containerApp 'Microsoft.App/containerApps@2022-01-01-preview' = {
   properties: {
     managedEnvironmentId: environment.id
     configuration: {
+      activeRevisionsMode: activeRevisionMode
       secrets: secrets
       registries: isPrivateRegistry ? [
         {

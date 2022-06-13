@@ -173,6 +173,7 @@ module nodeService 'container-http.bicep' = {
     containerRegistry: containerRegistry
     registryPassword: registryPassword
     containerRegistryUsername: containerRegistryUsername
+    activeRevisionMode: 'multiple'
     env: [
       {
         name: 'ORDER_SERVICE_NAME'
